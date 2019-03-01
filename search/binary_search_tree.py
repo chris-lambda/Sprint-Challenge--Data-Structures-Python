@@ -16,7 +16,18 @@ class BinarySearchTree:
       self.right.breadth_first_for_each(cb)
 
   def breadth_first_for_each(self, cb):
-    pass
+    queue = [self]
+
+    while len(queue) != 0:
+      current = queue.pop()
+      print(current.value)
+      
+      if current.left != None:
+        queue.insert(0, current.left)
+      if current.right != None:
+        queue.insert(0, current.right)
+
+      cb(current.value)
 
 
 
